@@ -1,0 +1,17 @@
+html a{
+	text-decoration: none;
+}
+.divleft{ float:left; width:49%; height:100px;}
+.divleft a{
+	text-decoration: none;
+	color:rgb(76, 113, 156);
+	display: inline-block;
+	width:80%;
+}
+.divright{ float:right; width:49%;height:100px; }
+.divright a{
+	text-decoration: none;
+	color:rgb(84, 139, 202);
+	display: inline-block;
+	width:80%;
+}

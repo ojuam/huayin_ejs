@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>EJS</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/content1.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+		<script src="https://unpkg.com/ejs@3.1.6/ejs.min.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="demo" class="carousel slide" data-ride="carousel">
+				<!-- 指示符 -->
+				<ul class="carousel-indicators">
+					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<li data-target="#demo" data-slide-to="1"></li>
+					<li data-target="#demo" data-slide-to="2"></li>
+				</ul>
+
+				<!-- 轮播图片 -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="../views/img/lb1.jpg" />
+					</div>
+					<div class="carousel-item">
+						<img src="../views/img/lb2.jpg" />
+					</div>
+					<div class="carousel-item">
+						<img src="../views/img/lb1.jpg" />
+					</div>
+				</div>
+
+				<!-- 左右切换按钮 -->
+				<a class="carousel-control-prev" href="#demo" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#demo" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+			<div class="top2">
+				<img src="../views/img/logo.png" alt="logo" />
+				<ul>
+					<li class="">
+						<button type="button" class="button_bcg">
+							<a href="#" style="color: rgb(223, 191, 132)">首页</a>
+						</button>
+					</li>
+					<li class="">
+						<button
+							type="button"
+							class="button_bcg dropdown-toggle"
+							data-toggle="dropdown"
+						>
+							<a href="#">公司介绍</a>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">公司简介</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">公司理念</a>
+						</div>
+					</li>
+					<li class="">
+						<button type="button" class="button_bcg">
+							<a href="#">投资团队</a>
+						</button>
+					</li>
+					<li class="">
+						<button
+							type="button"
+							class="button_bcg dropdown-toggle"
+							data-toggle="dropdown"
+						>
+							<a href="#">基金介绍</a>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">基金列表</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">认购流程</a>
+						</div>
+					</li>
+					<li class="">
+						<button type="button" class="button_bcg">
+							<a href="#">公司动态</a>
+						</button>
+					</li>
+				</ul>
+			</div>
+			<br />
+		</div>
+		<div id="content">
+			<div class="container">
+				<h3>公司简介</h3>
+				<hr />
+				<p>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp深圳市华银精治资产管理公司是中国顶尖的私募资产管理机构，中国基金业协会首批特别会员，前海股权交易中心首批挂牌企业。目前华银精治管理近百只基金，规模30亿元，投资业绩排列全国前茅，获得2016年和2015年全国私募业绩排名冠军。
+				</p>
+			</div>
+		</div>
+		<div id="content1">
+			<div class="container">
+				<h3>公司动态</h3>
+				<hr />
+				<div class="divleft" id="left"><a>hh</a></div>
+				<!--<div style="border-right:1px dashed #ccc; height:230px; width:1px; margin-top:0px; margin-left: 50%;display：inline;"></div>-->
+				<div class="divright" id="right"></div>
+			</div>
+			<div style="width: 100%; height: 300px"></div>
+		</div>
+		<div id="footer">
+			<footer class="footer">
+				<div class="container">
+					<div class="text-center">
+						版权所有 © 深圳市华银精治资产管理有限公司 粤ICP备14083240号-1
+					</div>
+					<div class="text-center">基金业协会登记编码：P1000449</div>
+					<div class="text-center">
+						本网站所有资讯与说明文字仅供参考，如有与本公司相关公告及基金法律文件不符，以相关公告及基金法律文件为准。市场有风险，投资需谨慎。
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+
+	<script>
+		ejs.render(content);
+		const readFileSync = function (path) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open('GET', path, false);
+			xmlhttp.send();
+			return xmlhttp.responseText;
+		};
+		let header = readFileSync('header.html');
+		$('#header') = ejs.render(header);
+	</script>
+
+	<script>
+		var json = [
+			{ title: '最新专访：如果你读懂了冯柳', date: '2001-10-1' },
+			{ title: '2021基金新形势', date: '2001-10-1' },
+			{ title: '最新专访：如果你读懂了冯柳', date: '2001-10-1' },
+			{ title: '2021基金新形势', date: '2001-10-1' },
+			{ title: '最新专访：如果你读懂了冯柳', date: '2001-10-1' },
+			{ title: '2021基金新形势', date: '2001-10-1' },
+		];
+		window.onload = function () {
+			var tmp = '<ul>';
+			for (var i = 0; i < json.length / 2; i++) {
+				tmp +=
+					'<li><a href=' +
+					'"#">' +
+					json[i].title +
+					'</a> ' +
+					' ' +
+					json[i].date +
+					'</li>';
+			}
+			tmp += '</ul>';
+			document.getElementById('left').innerHTML = tmp;
+			var tmp1 = '<ul>';
+			for (var i = json.length / 2; i < json.length; i++) {
+				tmp1 +=
+					'<li><a href=' +
+					'"#">' +
+					json[i].title +
+					'</a> ' +
+					' ' +
+					json[i].date +
+					'</li>';
+			}
+			tmp1 += '</ul>';
+			document.getElementById('right').innerHTML = tmp1;
+		};
+	</script>
+</html>
